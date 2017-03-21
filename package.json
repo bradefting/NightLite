@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eadskye/nightlite.git"
+    "url": "git+https://github.com/bradefting/nightlite.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eadskye/nightlite/issues"
+    "url": "https://github.com/bradefting/nightlite/issues"
   },
-  "homepage": "https://github.com/eadskye/nightlite#readme",
+  "homepage": "https://github.com/bradefting/nightlite#readme",
   "dependencies": {
     "bcrypt": "^1.0.1",
     "bcrypt-as-promised": "^1.1.0",
