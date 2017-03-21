@@ -105,7 +105,7 @@ $(document).ready(function(){
     });
 
     $xhr.done(function() {
-      console.log("you are logged out");
+      // console.log("you are logged out");
     });
     $xhr.fail(function(err) {
       // console.log(err);

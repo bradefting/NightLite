@@ -9,15 +9,15 @@ $(document).ready(function() {
         if ($(event.target).hasClass('comments-button')) {
 
             obsID = event.target.getAttribute('attr');
-            console.log(obsID);
+            // console.log(obsID);
             getComments();
             $('#modal1').modal('open');
         }
         if ($(event.target).hasClass('submit-button')) {
             obsID = event.target.getAttribute('attr');
-            console.log(obsID);
+            // console.log(obsID);
             var containerDiv = $(event.target).closest('div.commentSection');
-            console.log(containerDiv);
+            // console.log(containerDiv);
             var comment = $(containerDiv).find('textarea');
             var newComment = $(comment).val();
             var stars = 1;
@@ -38,6 +38,7 @@ function getObservations(data) {
         data: data,
         type: 'get',
         success: function(data) {
+          console.log(data);
             obsData = data;
             drawObservations(obsData);
         },
@@ -73,8 +74,8 @@ function addComment(comment, stars) {
 var clearFix = '<div class="clearfix"></div>';
 
 function getComments(data) {
-    console.log("in HERE");
-    console.log(obsID);
+
+    // console.log(obsID);
     $.ajax({
         url: '/observations/comments/' + obsID,
         // url: 'http://localhost:8000/observations/comments/' + obsID,
@@ -82,7 +83,7 @@ function getComments(data) {
         data: data,
         type: 'get',
         success: function(data) {
-            console.log(data, "comments by ID");
+            // console.log(data, "comments by ID");
             comments = data;
             $('#content').empty();
 
@@ -98,7 +99,7 @@ function getComments(data) {
             for (var i = 0; i < data.length; i++) {
 
                 var cdate = data[i].created_at;
-                console.log(cdate);
+                // console.log(cdate);
 
                 if (cdate !== null && typeof cdate !== typeof undefined && cdate.length > 0) {
                     cdate = cdate.substring(0, 10);
@@ -168,6 +169,7 @@ function drawObservations(data) {
             '</div>' +
             clearFix +
             '</div>' +
+            '<hr>' +
             '<br>'
         );
     }

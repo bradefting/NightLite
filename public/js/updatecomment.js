@@ -77,8 +77,8 @@ $(document).ready(function() {
         var data = {
             comment: newcomment
         }
-        console.log(data);
-        console.log(newcomment, text);
+        // console.log(data);
+        // console.log(newcomment, text);
 
         const options = {
             contentType: 'application/json',
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
         $.ajax(options)
             .done(() => {
-                console.log('success');
+                // console.log('success');
                 getComments(data);
             })
             .fail(($xhr) => {
@@ -102,7 +102,7 @@ $(document).ready(function() {
 
       $.ajax(options)
         .done(() => {
-            console.log('success');
+            // console.log('success');
             getComments(data);
         })
         .fail(($xhr) => {
@@ -121,7 +121,7 @@ $(document).ready(function() {
 
         $.ajax(options)
             .done(() => {
-                console.log('success');
+                // console.log('success');
                 getComments();
             })
             .fail(($xhr) => {

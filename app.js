@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
+const path = require('path');
 
 //switches to dev or test environments
 switch (app.get('env')) {
@@ -30,8 +31,6 @@ app.use(cookieSession({
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-
-const path = require('path');
 
 app.use(express.static(path.join('public')));
 
@@ -58,7 +57,7 @@ app.use(observations);
 app.use(comments);
 app.use(login);
 
-app.use((err, _req, res, _next) => {
+app.use((err, req, res, next) => {
   if (err.output && err.output.statusCode) {
     return res
       .status(err.output.statusCode)

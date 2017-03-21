@@ -40,7 +40,7 @@ router.get('/observations', (req, res, next) => {
   knex.from('observations').leftJoin('users', 'observations.id', 'users.id')
     .select(['observations.id','observations.user_id','latitude', 'longitude', 'stars', 'name', 'description','observations.created_at', 'observations.updated_at', 'username'])
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       if (!result) {
         return next();
       }
@@ -79,8 +79,12 @@ router.get('/observations/:user_id', (req, res, next) => {
 
 router.post('/observations', (req, res, next) => {
 
+  console.log(req.session, 'req.session in post');
+
+  console.log(req.session.id, "ID HERE");
+
   const newObservation = {
-    user_id: req.body.user_id,
+    user_id: req.session.id,
     latitude: req.body.latitude,
     longitude: req.body.longitude,
     stars: req.body.stars,
@@ -113,10 +117,13 @@ router.post('/observations', (req, res, next) => {
 
   knex('observations')
     .insert(newObservation)
-    .then(
-      res.send('New observation post created')
+    .then((result)=>{
+      console.log(result, "username in observation route");
+      // res.send(req.session.username);
+
+      // res.send('New observation post created')
       // res.redirect('/map.html')
-    )
+    })
     .catch((err) => {
       next(err);
     });
