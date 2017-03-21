@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "mocha",
-    "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest"
+    "knex": "knex"
   },
   "repository": {
     "type": "git",
