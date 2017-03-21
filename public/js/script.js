@@ -202,7 +202,7 @@ require([
     }
 
     function addGraphics() {
-        console.log("pins : " , observationArray.length);
+        // console.log("pins : " , observationArray.length);
         for (i = 0; i < observationArray.length; ++i) {
             map.graphics.add(observationArray[i]);
         }

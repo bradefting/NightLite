@@ -79,9 +79,8 @@ router.get('/observations/:user_id', (req, res, next) => {
 
 router.post('/observations', (req, res, next) => {
 
-  console.log(req.session, 'req.session in post');
-
-  console.log(req.session.id, "ID HERE");
+  // console.log(req.session, 'req.session in post');
+  // console.log(req.session.id, "ID HERE");
 
   const newObservation = {
     user_id: req.session.id,
