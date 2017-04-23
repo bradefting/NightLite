@@ -4,7 +4,7 @@ NightLite is a web application that allows users to search and share the best lo
 
 Link to website deployed site: [https://bradefting-nightlite.herokuapp.com/](https://bradefting-nightlite.herokuapp.com/)
 
-![alt text](https://github.com/bradefting/NightLite/tree/master/public/imgs/NightLite-site.png?raw=true)
+![Link to NightLite Github Repository](https://github.com/bradefting/NightLite/blob/master/public/imgs/NightLite_site.png?raw=true)
 
 ### Features
 
