@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
 });
 
-var obsData;
+// var obsData;
 var comments;
 
 function getObservations(data) {
@@ -39,8 +39,9 @@ function getObservations(data) {
         type: 'get',
         success: function(data) {
           // console.log(data);
-            obsData = data;
-            drawObservations(obsData);
+            // obsData = data;
+            console.log(data, 'data');
+            drawObservations(data);
         },
         error: function() {
             console.log("error");

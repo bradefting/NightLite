@@ -30,16 +30,17 @@ $(document).ready(function() {
         let description = $('#description').val();
         //  let stars = $(this.stars).val();
         let stars = numberOfStars;
-        let user_id = $('#user_id').val();
+        // let user_id = $('#user_id').val();
 
         newObs.name = name;
         newObs.latitude = latitude;
         newObs.longitude = longitude;
         newObs.description = description;
         newObs.stars = stars;
-        newObs.user_id = user_id;
+        // newObs.user_id = user_id;
 
         newObs = JSON.stringify(newObs);
+        // console.log(newObs, 'newObs');
 
         $.ajax({
             method: 'POST',

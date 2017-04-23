@@ -37,10 +37,12 @@ router.get('/observations', (req, res, next) => {
   let userId = req.session.id;
   let username = req.session.username;
 
+  console.log(username, 'username');
+
   knex.from('observations').leftJoin('users', 'observations.id', 'users.id')
-    .select(['observations.id','observations.user_id','latitude', 'longitude', 'stars', 'name', 'description','observations.created_at', 'observations.updated_at', 'username'])
+    .select(['observations.id','observations.user_id','latitude', 'longitude', 'stars', 'name', 'description','observations.created_at', 'observations.updated_at', 'users.username'])
     .then((result) => {
-      // console.log(result);
+      console.log(result, "obs route");
       if (!result) {
         return next();
       }
@@ -91,6 +93,9 @@ router.post('/observations', (req, res, next) => {
     description: req.body.description
    };
 
+   console.log(newObservation, 'newObservation');
+   console.log(req.session.username);
+
   if(!newObservation.user_id){
     return next(boom.create(400, 'user_id must not be blank'));
   }
@@ -114,6 +119,7 @@ router.post('/observations', (req, res, next) => {
     return next(boom.create(400, 'description must not be blank'));
   }
 
+  // this is inserting but with no username
   knex('observations')
     .insert(newObservation)
     .then((result)=>{
